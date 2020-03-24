@@ -1,0 +1,35 @@
+/*
+* IoT Hub Raspberry Pi NodeJS - Microsoft Sample Code - Copyright (c) 2017 - Licensed MIT
+*/
+'use strict';
+const mySensor = require('node-dht-sensor');
+function MessageProcessor(option) {
+  option = Object.assign({
+  deviceId: '[Unknown device] node',
+    temperatureAlert: 30
+  }, option);
+   }
+
+MessageProcessor.prototype.getMessage = function (messageId, cb) {
+    mySensor.read(11, 4, function(err, temperature, humidity) {
+    if (err) {
+      console.log('[Sensor] Read data failed due to:\n\t');
+      return;
+    }
+  //  console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
+    //'humidity: ' + humidity.toFixed(1) + '%');
+
+    cb(JSON.stringify({
+      messageId: messageId,
+      deviceId: 'Rpi4-Node',
+      //temperature: data.temperature,
+      //humidity: data.humidity
+      temperature: temperature, //.toFixed(1),
+      humidity: humidity //.toFixed(1)
+    })
+    )  
+  });
+}
+
+module.exports = MessageProcessor;
+Rpi4-Node=

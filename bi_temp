@@ -1,0 +1,34 @@
+
+
+echo connecting to C851 IOT HUB 
+sleep 1
+
+echo .#...........
+sleep .1
+echo .##.......... 
+sleep .1
+echo .###.........
+sleep .1
+echo .####........
+sleep .1
+echo .#####.......
+sleep .1
+echo .######......
+sleep .1
+echo .#######.....
+sleep .1
+echo .########....
+sleep .1
+echo .#########...
+sleep .1
+echo .##########..
+sleep .1
+echo .###########.
+sleep .1
+echo .############.
+sleep .1
+
+
+cd /home/pi/iot-hub-node-raspberrypi-client-app
+node index.js 'HostName=C851DP-IOT-HUB.azure-devices.net;DeviceId=Rpi4-Node;SharedAccessKey=xRmNK3t8CJc5Pfo+oQg27q4+YsZmtaUpEcNZdjIZiRg='
+
